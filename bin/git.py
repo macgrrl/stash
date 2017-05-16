@@ -271,7 +271,7 @@ def git_remote(args):
     if len(args) == 0:
         repo = _get_repo()
         for key, value in repo.remotes.items():
-            print key, value
+            print '{0}: {1}'.format(key, value)
     elif len(args)==2:
         repo=_get_repo()
         repo.add_remote(args[0],args[1])
@@ -602,7 +602,7 @@ def git_log(args):
                         type=argparse.FileType('w'),
                         default=sys.stdout)
 
-    parser.add_argument('-l','--length',
+    parser.add_argument('-l','-n','--length',
                         action='store',
                         type=int,
                         dest='max_entries',
